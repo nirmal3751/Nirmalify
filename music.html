@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nirmalify Music Player - Library</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/7a4b62b0a4.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .music-page-content {
+        padding: 80px 0;
+        min-height: 60vh;
+        background-color: var(--body);
+        text-align: center;
+      }
+      .music-page-content h1 {
+        font-size: 48px;
+        color: var(--purple300);
+        margin-bottom: 20px;
+      }
+
+      .music-card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin: 40px auto;
+        padding: 20px;
+        max-width: 1200px;
+      }
+
+      .music-card {
+        background-color: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        text-align: center;
+      }
+
+      .music-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+      
+      .music-card h3 {
+          color: var(--purple500);
+          margin-bottom: 15px;
+      }
+      
+      /* कार्ड के अंदर की इमेज को स्टाइलिंग */
+      .card-img {
+          width: 100%;
+          height: 200px;
+          object-fit: cover; /* इमेज को खूबसूरती से फिट करने के लिए */
+          border-radius: 8px;
+          margin-bottom: 10px;
+      }
+      
+      /* कार्ड को लिंक से जोड़ने पर लिंक का टेक्स्ट कलर ठीक करना */
+      .music-card-grid a {
+          color: inherit;
+          text-decoration: none; /* लिंक से अंडरलाइन हटाना */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <div class="logo">
+          <img src="images/logo.jpg" alt="Nirmalify Icon" class="logo-icon">
+          <span class="logo-text">Nirmalify Music Player</span>
+        </div>
+
+        <ul>
+          <a href="index.html">
+            <li>Home</li>
+          </a>
+        </ul>
+      </nav>
+    </header>
+    
+    <main>
+      <section class="music-page-content">
+        <div class="container">
+          <h1>Nirmalify Premium Music Library</h1>
+          <p>Explore millions of songs across different languages and genres. Start your free trial now!</p>
+          
+          <div class="music-card-grid">
+              
+            <a href="english.html">
+              <div class="music-card">
+                  <h3>English Music</h3>
+                  <img src="images/music.png" alt="English Music" class="card-img">
+                  <p style="margin-top: 10px; font-weight: 500; color: var(--red600);">View Top 10 Singers & Playlists</p>
+              </div>
+            </a>
+            
+            <a href="hindi.html">
+              <div class="music-card">
+                  <h3>Hindi Music</h3>
+                  <img src="images/music.png" alt="Hindi Music" class="card-img">
+                  <p style="margin-top: 10px; font-weight: 500; color: var(--red600);">View Top 10 Singers & Playlists</p>
+              </div>
+            </a>
+            
+            <a href="tamil.html">
+              <div class="music-card">
+                  <h3>Tamil Music</h3>
+                  <img src="images/music.png" alt="Tamil Music" class="card-img">
+                  <p style="margin-top: 10px; font-weight: 500; color: var(--red600);">View Top 10 Singers & Playlists</p>
+              </div>
+            </a>
+            
+            <a href="telugu.html">
+              <div class="music-card">
+                  <h3>Telugu Music</h3>
+                  <img src="images/music.png" alt="Telugu Music" class="card-img">
+                  <p style="margin-top: 10px; font-weight: 500; color: var(--red600);">View Top 10 Singers & Playlists</p>
+              </div>
+            </a>
+
+          </div>
+
+          <a href="index.html">
+            <button class="secondary-btn" style="background-color: var(--purple500);">Go Back to Home</button>
+          </a>
+
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <section class="footer-upper">
+        <div class="container">
+          <div class="footer-links">
+            <h4>Shop & Learn</h4>
+            <ul>
+              <li>Music</li>
+              <li>Movies</li>
+              <li>Shows</li>
+              <li>Apps</li>
+              <li>Gift Cards</li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Orange Store</h4>
+            <ul>
+              <li>Find a Store</li>
+              <li>Today at Orange</li>
+              <li>Financing</li>
+              <li>Orange Camp</li>
+              <li>Order Status</li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Education & Business</h4>
+            <ul>
+              <li>Orange & Education</li>
+              <li>Shop for Collage</li>
+              <li>Orange & Business</li>
+              <li>Shop for Business</li>
+              <li>Jobs</li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>About Orange</h4>
+            <ul>
+              <li>Newsroom</li>
+              <li>Orange Leadership</li>
+              <li>Investors</li>
+              <li>Envents</li>
+              <li>Contact Orange</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="footer-lower">
+        <p>Designed by Nirmal Rajput | Contact: 9009629736 | Email: nirmalrajputpvt@gmail.com</p>
+      </section>
+    </footer>
+    
+  </body>
+</html>

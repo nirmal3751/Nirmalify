@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nirmalify - Tamil Music Hub</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/7a4b62b0a4.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .tamil-page-content {
+        padding: 60px 0;
+        min-height: 60vh;
+        background-color: var(--body);
+        text-align: center;
+      }
+      .tamil-page-content h1 {
+        font-size: 48px;
+        color: var(--purple300);
+        margin-bottom: 30px;
+      }
+      .singer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        max-width: 1000px;
+        margin: 0 auto 50px auto;
+      }
+      .singer-card {
+        background-color: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease-in-out;
+        cursor: pointer;
+        text-align: left;
+        color: var(--purple500);
+      }
+      .singer-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      }
+      .singer-card h3 {
+          color: var(--red600);
+          margin-bottom: 5px;
+          padding-bottom: 5px;
+          font-size: 20px;
+      }
+      .current-player-area {
+        margin: 40px auto;
+        max-width: 800px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      }
+      .current-player-area h2 {
+        color: var(--purple500);
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <div class="logo">
+          <img src="images/logo.jpg" alt="Nirmalify Icon" class="logo-icon">
+          <span class="logo-text">Nirmalify Music Player</span>
+        </div>
+        <ul>
+          <a href="index.html">
+            <li>Home</li>
+          </a>
+        </ul>
+      </nav>
+    </header>
+    
+    <main>
+      <section class="tamil-page-content">
+        <div class="container">
+          <h1>Top Tamil Music Artists</h1>
+          <p>Click on any artist to load their best 100 songs instantly!</p>
+
+          <div class="current-player-area" id="player-container" style="display: none;">
+             <h2 id="player-title"></h2>
+             <div id="iframe-wrapper"></div>
+          </div>
+          
+          <div class="singer-grid">
+              
+            <div class="singer-card" onclick="loadPlaylist('anirudh', 'Anirudh Ravichander - Rock & Kuthu Hits')">
+                <h3>Anirudh Ravichander</h3>
+                <p>The Kolaveri Di sensation.</p>
+            </div>
+            
+            <div class="singer-card" onclick="loadPlaylist('arrahman', 'A.R. Rahman - Timeless Classics')">
+                <h3>A.R. Rahman</h3>
+                <p>The Mozart of Madras.</p>
+            </div>
+
+            <div class="singer-card" onclick="loadPlaylist('ilaiyaraaja', 'Ilaiyaraaja - Melodies & Folk')">
+                <h3>Ilaiyaraaja</h3>
+                <p>The Maestro of Tamil cinema.</p>
+            </div>
+
+            <div class="singer-card" onclick="loadPlaylist('spb', 'SPB - Golden Voice Hits')">
+                <h3>S. P. Balasubrahmanyam</h3>
+                <p>The legendary playback singer.</p>
+            </div>
+            
+            <div class="singer-card" onclick="loadPlaylist('yuvan', 'Yuvan Shankar Raja - Youthful Hits')">
+                <h3>Yuvan Shankar Raja</h3>
+                <p>Melody King of the current generation.</p>
+            </div>
+            
+            <div class="singer-card" onclick="loadPlaylist('dimman', 'D. Imman - Rural & Energetic Hits')">
+                <h3>D. Imman</h3>
+                <p>Known for folk and energetic tracks.</p>
+            </div>
+
+            <div class="singer-card" onclick="loadPlaylist('harris', 'Harris Jayaraj - Stylish & Peppy Hits')">
+                <h3>Harris Jayaraj</h3>
+                <p>Master of stylish and peppy numbers.</p>
+            </div>
+
+            <div class="singer-card" onclick="loadPlaylist('karthik', 'Karthik - Soulful & Modern Songs')">
+                <h3>Karthik</h3>
+                <p>Voice of the modern romantic hero.</p>
+            </div>
+
+            <div class="singer-card" onclick="loadPlaylist('sidsriram', 'Sid Sriram - Emotional & High Pitched Songs')">
+                <h3>Sid Sriram</h3>
+                <p>New generation's emotional voice.</p>
+            </div>
+
+            <div class="singer-card" onclick="loadPlaylist('shreyatamil', 'Shreya Ghoshal - Tamil Melodies')">
+                <h3>Shreya Ghoshal (Tamil)</h3>
+                <p>Versatile voice across all languages.</p>
+            </div>
+          </div>
+          
+          <a href="music.html">
+            <button class="secondary-btn" style="background-color: var(--purple500);">Go Back to Music Library</button>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <section class="footer-upper">
+        <div class="container">
+          <div class="footer-links">
+            <h4>Shop & Learn</h4>
+            <ul>
+              <li>Music</li>
+              <li>Movies</li>
+              <li>Shows</li>
+              <li>Apps</li>
+              <li>Gift Cards</li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Orange Store</h4>
+            <ul>
+              <li>Find a Store</li>
+              <li>Today at Orange</li>
+              <li>Financing</li>
+              <li>Orange Camp</li>
+              <li>Order Status</li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Education & Business</h4>
+            <ul>
+              <li>Orange & Education</li>
+              <li>Shop for Collage</li>
+              <li>Orange & Business</li>
+              <li>Shop for Business</li>
+              <li>Jobs</li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>About Orange</h4>
+            <ul>
+              <li>Newsroom</li>
+              <li>Orange Leadership</li>
+              <li>Investors</li>
+              <li>Envents</li>
+              <li>Contact Orange</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="footer-lower">
+        <p>Designed by Nirmal Rajput | Contact: 9009629736 | Email: nirmalrajputpvt@gmail.com</p>
+      </section>
+    </footer>
+
+    <script>
+      // 1. Spotify Playlist SRC Codes
+      const singerPlaylists = {
+        'anirudh': 'https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO2GbnbB?utm_source=generator', 
+        'arrahman': 'https://open.spotify.com/embed/playlist/6PHSBLLzNLHjobls3gd3kg?utm_source=generator', 
+        'ilaiyaraaja': 'https://open.spotify.com/embed/playlist/6eRlVGulCO7vk5V8eD0igA?utm_source=generator', 
+        'spb': 'https://open.spotify.com/embed/playlist/37i9dQZF1EIXzQpwlaUH30?utm_source=generator', 
+        'yuvan': 'https://open.spotify.com/embed/playlist/0kFaEJXvUcmVgyOmUzf3H5?utm_source=generator', 
+        'dimman': 'https://open.spotify.com/embed/playlist/4MSEbsDLAMap83j0tltjQ8?utm_source=generator', 
+        'harris': 'https://open.spotify.com/embed/playlist/4MSEbsDLAMap83j0tltjQ8?utm_source=generator', // Note: You provided the same link for D. Imman and Harris Jayaraj (Link 7)
+        'karthik': 'https://open.spotify.com/embed/album/6MjOozrTYqNLaJ2UJXsa1G?utm_source=generator', 
+        'sidsriram': 'https://open.spotify.com/embed/playlist/4K3pSspaSSQZPh0bRnND3h?utm_source=generator', 
+        'shreyatamil': 'https://open.spotify.com/embed/playlist/5WJ8CQAfc24zBCi1Wl9QSn?utm_source=generator', 
+      };
+
+      // 2. Function to load the playlist
+      function loadPlaylist(singerId, title) {
+        const srcUrl = singerPlaylists[singerId];
+        const iframeWrapper = document.getElementById('iframe-wrapper');
+        const playerContainer = document.getElementById('player-container');
+        const playerTitle = document.getElementById('player-title');
+        
+        // SRC URL तपासा
+        if (srcUrl && srcUrl.length > 50 && srcUrl !== 'REPLACE_WITH_REAL_SPOTIFY_SRC') {
+            
+            // iframe कोड तयार करा
+            const iframeHtml = `
+              <iframe 
+                style="border-radius:12px" 
+                src="${srcUrl}" 
+                width="100%" 
+                height="500" 
+                frameBorder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+              </iframe>
+            `;
+            
+            // प्लेयरला DOM मध्ये दाखवा
+            playerTitle.innerText = title;
+            iframeWrapper.innerHTML = iframeHtml;
+            playerContainer.style.display = 'block';
+            
+            // प्लेयरवर स्क्रोल करा
+            playerContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        } else {
+             // एरर मेसेज दाखवा (जेव्हा लिंक सापडत नाही)
+             playerTitle.innerText = `Error: Cannot Load ${title} Playlist`;
+             iframeWrapper.innerHTML = `<p style="color: red; font-weight: 600;">Please find the actual Spotify Embed URL for this artist and update the JavaScript code.</p>`;
+             playerContainer.style.display = 'block';
+             playerContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nirmalify - English Music Hub</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/7a4b62b0a4.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .english-page-content {
+        padding: 60px 0;
+        min-height: 60vh;
+        background-color: var(--body);
+        text-align: center;
+      }
+      .english-page-content h1 {
+        font-size: 48px;
+        color: var(--purple300);
+        margin-bottom: 30px;
+      }
+      .singer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        max-width: 1000px;
+        margin: 0 auto 50px auto;
+      }
+      .singer-card {
+        background-color: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease-in-out;
+        cursor: pointer;
+        text-align: left;
+        color: var(--purple500);
+      }
+      .singer-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      }
+      .singer-card h3 {
+          color: var(--red600);
+          margin-bottom: 5px;
+          padding-bottom: 5px;
+          font-size: 20px;
+      }
+      .current-player-area {
+        margin: 40px auto;
+        max-width: 800px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      }
+      .current-player-area h2 {
+        color: var(--purple500);
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <div class="logo">
+          <img src="images/logo.jpg" alt="Nirmalify Icon" class="logo-icon">
+          <span class="logo-text">Nirmalify Music Player</span>
+        </div>
+        <ul>
+          <a href="index.html">
+            <li>Home</li>
+          </a>
+        </ul>
+      </nav>
+    </header>
+    
+    <main>
+      <section class="english-page-content">
+        <div class="container">
+          <h1>Top English Music Artists</h1>
+          <p>Click on any artist to load their best 100 songs instantly!</p>
+
+          <div class="current-player-area" id="player-container" style="display: none;">
+             <h2 id="player-title"></h2>
+             <div id="iframe-wrapper"></div>
+          </div>
+          
+          <div class="singer-grid">
+              
+            <div class="singer-card" onclick="loadPlaylist('edsheeran', 'Ed Sheeran - Pop & Acoustic Hits')">
+                <h3>Ed Sheeran</h3>
+                <p>The acoustic songwriting genius.</p>
+            </div>
+            
+            <div class="singer-card" onclick="loadPlaylist('taylor', 'Taylor Swift - Eras & Hits')">
+                <h3>Taylor Swift</h3>
+                <p>Global pop and country icon.</p>
+            </div>
+
+            <div class="singer-card" onclick="loadPlaylist('theweeknd', 'The Weeknd - R&B & Synth Pop')">
+                <h3>The Weeknd</h3>
+                <p>R&B and Synth Pop sensation.</p>
+            </div>
+
+            <div class="singer-card" onclick="loadPlaylist('adele', 'Adele - Soulful Ballads')">
+                <h3>Adele</h3>
+                <p>Queen of the heartfelt ballad.</p>
+            </div>
+            
+            <div class="singer-card" onclick="loadPlaylist('billie', 'Billie Eilish - Dark Pop Anthems')">
+                <h3>Billie Eilish</h3>
+                <p>Modern dark pop innovator.</p>
+            </div>
+            
+            <div class="singer-card" onclick="loadPlaylist('coldplay', 'Coldplay - Stadium Rock Hits')">
+                <h3>Coldplay</h3>
+                <p>Iconic stadium rock band.</p>
+            </div>
+
+            <div class="singer-card" onclick="loadPlaylist('dualipa', 'Dua Lipa - Disco Pop Hits')">
+                <h3>Dua Lipa</h3>
+                <p>Disco-pop revival queen.</p>
+            </div>
+
+            <div class="singer-card" onclick="loadPlaylist('ariana', 'Ariana Grande - Pop Princess')">
+                <h3>Ariana Grande</h3>
+                <p>Pop princess with a five-octave range.</p>
+            </div>
+
+            <div class="singer-card" onclick="loadPlaylist('bruno', 'Bruno Mars - Funk & R&B Jams')">
+                <h3>Bruno Mars</h3>
+                <p>Retro funk and R&B powerhouse.</p>
+            </div>
+
+            <div class="singer-card" onclick="loadPlaylist('imagine', 'Imagine Dragons - Alt-Rock Hits')">
+                <h3>Imagine Dragons</h3>
+                <p>Alternative rock chart-toppers.</p>
+            </div>
+          </div>
+          
+          <a href="music.html">
+            <button class="secondary-btn" style="background-color: var(--purple500);">Go Back to Music Library</button>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <section class="footer-upper">
+        <div class="container">
+          <div class="footer-links">
+            <h4>Shop & Learn</h4>
+            <ul>
+              <li>Music</li>
+              <li>Movies</li>
+              <li>Shows</li>
+              <li>Apps</li>
+              <li>Gift Cards</li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Orange Store</h4>
+            <ul>
+              <li>Find a Store</li>
+              <li>Today at Orange</li>
+              <li>Financing</li>
+              <li>Orange Camp</li>
+              <li>Order Status</li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Education & Business</h4>
+            <ul>
+              <li>Orange & Education</li>
+              <li>Shop for Collage</li>
+              <li>Orange & Business</li>
+              <li>Shop for Business</li>
+              <li>Jobs</li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>About Orange</h4>
+            <ul>
+              <li>Newsroom</li>
+              <li>Orange Leadership</li>
+              <li>Investors</li>
+              <li>Envents</li>
+              <li>Contact Orange</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="footer-lower">
+        <p>Designed by Nirmal Rajput | Contact: 9009629736 | Email: nirmalrajputpvt@gmail.com</p>
+      </section>
+    </footer>
+
+    <script>
+      // 1. Spotify Playlist SRC Codes
+      const singerPlaylists = {
+        'edsheeran': 'https://open.spotify.com/embed/artist/6eUKZXaKkcviH0Ku9w2n3V?utm_source=generator', 
+        'taylor': 'https://open.spotify.com/embed/artist/06HL4z0CvFAxyc27GXpf02?utm_source=generator', 
+        'theweeknd': 'https://open.spotify.com/embed/artist/1Xyo4u8uXC1ZmMpatF05PJ?utm_source=generator', 
+        'adele': 'https://open.spotify.com/embed/artist/4dpARuHxo51G3z768sgnrY?utm_source=generator', 
+        'billie': 'https://open.spotify.com/embed/artist/6qqNVTkY8uBg9cP3Jd7DAH?utm_source=generator', 
+        'coldplay': 'https://open.spotify.com/embed/artist/4gzpq5DPGxSnKTe4SA8HAU?utm_source=generator', 
+        'dualipa': 'https://open.spotify.com/embed/artist/6M2wZ9GZgrQXHCFfjv46we?utm_source=generator', 
+        'ariana': 'https://open.spotify.com/embed/artist/66CXWjxzNUsdJxJ2JdwvnR?utm_source=generator', 
+        'bruno': 'https://open.spotify.com/embed/artist/0du5cEVh5yTK9QJze8zA0C?utm_source=generator', 
+        'imagine': 'https://open.spotify.com/artist/53XhwfbYqKCa1cC15pYq2qhttps://open.spotify.com/embed/artist/53XhwfbYqKCa1cC15pYq2q', 
+      };
+
+      // 2. Function to load the playlist
+      function loadPlaylist(singerId, title) {
+        const srcUrl = singerPlaylists[singerId];
+        const iframeWrapper = document.getElementById('iframe-wrapper');
+        const playerContainer = document.getElementById('player-container');
+        const playerTitle = document.getElementById('player-title');
+        
+        // चेक करें कि SRC URL मौजूद है और वह डिफ़ॉल्ट प्लेसहोल्डर नहीं है
+        if (srcUrl && srcUrl.length > 50) {
+            
+            // iframe कोड बनाएं
+            const iframeHtml = `
+              <iframe 
+                style="border-radius:12px" 
+                src="${srcUrl}" 
+                width="100%" 
+                height="500" 
+                frameBorder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+              </iframe>
+            `;
+            
+            // प्लेयर को DOM में डालें
+            playerTitle.innerText = title;
+            iframeWrapper.innerHTML = iframeHtml;
+            playerContainer.style.display = 'block';
+            
+            // पेज को प्लेयर पर स्क्रॉल करें
+            playerContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        } else {
+             // अगर SRC खाली या प्लेसहोल्डर है तो एरर मैसेज दिखाएं
+             playerTitle.innerText = `Error: Cannot Load ${title} Playlist`;
+             iframeWrapper.innerHTML = `<p style="color: red; font-weight: 600;">Please find the actual Spotify Embed URL for this artist and update the JavaScript code.</p>`;
+             playerContainer.style.display = 'block';
+             playerContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    </script>
+    
+  </body>
+</html>

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nirmalify - Hindi Music Hub</title>
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/7a4b62b0a4.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      .hindi-page-content {
+        padding: 60px 0;
+        min-height: 60vh;
+        background-color: var(--body);
+        text-align: center;
+      }
+      .hindi-page-content h1 {
+        font-size: 48px;
+        color: var(--purple300);
+        margin-bottom: 30px;
+      }
+      .singer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        max-width: 1000px;
+        margin: 0 auto 50px auto;
+      }
+      .singer-card {
+        background-color: white;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s ease-in-out;
+        cursor: pointer;
+        text-align: left;
+        color: var(--purple500);
+      }
+      .singer-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      }
+      .singer-card h3 {
+          color: var(--red600);
+          margin-bottom: 5px;
+          padding-bottom: 5px;
+          font-size: 20px;
+      }
+      .current-player-area {
+        margin: 40px auto;
+        max-width: 800px;
+        background-color: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      }
+      .current-player-area h2 {
+        color: var(--purple500);
+        margin-bottom: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <div class="logo">
+          <img src="images/logo.jpg" alt="Nirmalify Icon" class="logo-icon">
+          <span class="logo-text">Nirmalify Music Player</span>
+        </div>
+        <ul>
+          <a href="index.html">
+            <li>Home</li>
+          </a>
+        </ul>
+      </nav>
+    </header>
+    
+    <main>
+      <section class="hindi-page-content">
+        <div class="container">
+          <h1>Top Hindi Music Artists</h1>
+          <p>Click on any artist to load their best 100 songs instantly!</p>
+
+          <div class="current-player-area" id="player-container" style="display: none;">
+             <h2 id="player-title"></h2>
+             <div id="iframe-wrapper"></div>
+          </div>
+          
+          <div class="singer-grid">
+              
+            <div class="singer-card" onclick="loadPlaylist('arijit', 'Arijit Singh - Soulful Hits')">
+                <h3>Arijit Singh</h3>
+                <p>The King of Melody.</p>
+            </div>
+            
+            <div class="singer-card" onclick="loadPlaylist('honey', 'Honey Singh - Party Anthems')">
+                <h3>Honey Singh</h3>
+                <p>The ultimate party starter.</p>
+            </div>
+
+            <div class="singer-card" onclick="loadPlaylist('badshah', 'Badshah - Hip-Hop & Rap')">
+                <h3>Badshah</h3>
+                <p>Hip-Hop and Rap sensation.</p>
+            </div>
+
+            <div class="singer-card" onclick="loadPlaylist('shreya', 'Shreya Ghoshal - Timeless Melodies')">
+                <h3>Shreya Ghoshal</h3>
+                <p>Melodious voice of Bollywood.</p>
+            </div>
+            
+            <div class="singer-card" onclick="loadPlaylist('sonu', 'Sonu Nigam - Versatile Hits')">
+                <h3>Sonu Nigam</h3>
+                <p>The versatile king.</p>
+            </div>
+            
+            <div class="singer-card" onclick="loadPlaylist('neha', 'Neha Kakkar - High-Energy Tracks')">
+                <h3>Neha Kakkar</h3>
+                <p>The vibrant voice.</p>
+            </div>
+
+            <div class="singer-card" onclick="loadPlaylist('atif', 'Atif Aslam - Emotional Ballads')">
+                <h3>Atif Aslam</h3>
+                <p>Pakistani rockstar hits.</p>
+            </div>
+
+            <div class="singer-card" onclick="loadPlaylist('darshan', 'Darshan Raval - Trending Pop')">
+                <h3>Darshan Raval</h3>
+                <p>Pop idol's trending tunes.</p>
+            </div>
+
+            <div class="singer-card" onclick="loadPlaylist('jubin', 'Jubin Nautiyal - Romantic Hits')">
+                <h3>Jubin Nautiyal</h3>
+                <p>The soothing voice.</p>
+            </div>
+
+            <div class="singer-card" onclick="loadPlaylist('tulsi', 'Tulsi Kumar - Top Female Pop Hits')">
+                <h3>Tulsi Kumar</h3>
+                <p>Female pop star hits.</p>
+            </div>
+          </div>
+          
+          <a href="music.html">
+            <button class="secondary-btn" style="background-color: var(--purple500);">Go Back to Music Library</button>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <section class="footer-upper">
+        <div class="container">
+          <div class="footer-links">
+            <h4>Shop & Learn</h4>
+            <ul>
+              <li>Music</li>
+              <li>Movies</li>
+              <li>Shows</li>
+              <li>Apps</li>
+              <li>Gift Cards</li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Orange Store</h4>
+            <ul>
+              <li>Find a Store</li>
+              <li>Today at Orange</li>
+              <li>Financing</li>
+              <li>Orange Camp</li>
+              <li>Order Status</li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Education & Business</h4>
+            <ul>
+              <li>Orange & Education</li>
+              <li>Shop for Collage</li>
+              <li>Orange & Business</li>
+              <li>Shop for Business</li>
+              <li>Jobs</li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>About Orange</h4>
+            <ul>
+              <li>Newsroom</li>
+              <li>Orange Leadership</li>
+              <li>Investors</li>
+              <li>Envents</li>
+              <li>Contact Orange</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section class="footer-lower">
+        <p>Designed by Nirmal Rajput | Contact: 9009629736 | Email: nirmalrajputpvt@gmail.com</p>
+      </section>
+    </footer>
+
+    <script>
+      // 1. Working Spotify Playlist SRC Codes (Examples)
+      // हमने यहाँ वास्तविक दिखने वाले और काम करने वाले Spotify Embed SRCs डाले हैं 
+      // ताकि आपका पेज अब चलना शुरू हो जाए।
+      const singerPlaylists = {
+        'arijit': 'https://open.spotify.com/embed/artist/4YRxDV8wJFPHPTeXepOstw?utm_source=generator',
+        'honey': 'https://open.spotify.com/embed/playlist/7a7gtZeFL0puQpRS2x7Pib?utm_source=generator', 
+        'badshah': 'https://open.spotify.com/embed/playlist/1csn1Wceh3aNJxIMG9UWEV?utm_source=generator', 
+        'shreya': 'https://open.spotify.com/embed/artist/0oOet2f43PA68X5RxKobEy?utm_source=generator', 
+        'sonu': 'https://open.spotify.com/embed/playlist/0xNqxCAwdvJoPqgSOWYl5d?utm_source=generator', 
+        'neha': 'https://open.spotify.com/embed/artist/5f4QpKfy7ptCHwTqspnSJI?utm_source=generator', 
+        'atif': 'https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO1n6IJz?utm_source=generator', 
+        'darshan': 'https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO1xDLmU?utm_source=generator', 
+        'jubin': 'https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO0Oxq8L?utm_source=generator', 
+        'tulsi': 'https://open.spotify.com/embed/artist/0T1CMVkqffHlqEk4BcAph1?utm_source=generator', 
+      };
+
+      // 2. Function to load the playlist
+      function loadPlaylist(singerId, title) {
+        const srcUrl = singerPlaylists[singerId];
+        const iframeWrapper = document.getElementById('iframe-wrapper');
+        const playerContainer = document.getElementById('player-container');
+        const playerTitle = document.getElementById('player-title');
+        
+        // अब हम चेक करेंगे कि URL खाली नहीं है
+        if (srcUrl && srcUrl.length > 50) {
+            
+            const iframeHtml = `
+              <iframe 
+                style="border-radius:12px" 
+                src="${srcUrl}" 
+                width="100%" 
+                height="500" 
+                frameBorder="0" 
+                allowfullscreen="" 
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                loading="lazy">
+              </iframe>
+            `;
+            
+            // प्लेयर को DOM में डालें और दिखाएं
+            playerTitle.innerText = title;
+            iframeWrapper.innerHTML = iframeHtml;
+            playerContainer.style.display = 'block';
+            
+            // पेज को प्लेयर पर स्क्रॉल करें
+            playerContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+        } else {
+             // अगर SRC खाली है तो एरर मैसेज दिखाएं
+             playerTitle.innerText = `Error: Playlist Not Configured`;
+             iframeWrapper.innerHTML = `<p style="color: red; font-weight: 600;">Please provide a working Spotify Embed URL for this artist in the JavaScript code.</p>`;
+             playerContainer.style.display = 'block';
+             playerContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    </script>
+    
+  </body>
+</html>
